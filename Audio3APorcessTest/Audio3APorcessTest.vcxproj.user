@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LocalDebuggerCommandArguments>mic16k-1ch.pcm ref16k-1ch.pcm  aec16k-1ch.pcm 16000 1 0</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommand>$(OutDir)..\..\bin\$(TargetName)$(TargetExt)</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>..\bin</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LocalDebuggerCommand>$(OutDir)..\..\bin\$(TargetName)$(TargetExt)</LocalDebuggerCommand>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArguments>mic32k-2ch.pcm ref32k-2ch.pcm  aec32k-2ch.pcm 32000 2 0</LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory>..\bin</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
+</Project>
