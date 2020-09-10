@@ -10,12 +10,12 @@
 * 4、仅6个API，仅一个DLL组成，占用空间小，无第三方依赖，集成简易。
 * 5、C++开发，支持C、C++、C#，可移植Android等平台
 
-Webrtc中关于延时自动估计的说明：
-WebRtc is very dependent on delay calculation, which will be passed to WebRtcAec_Process() below. A poor estimate, even by as little as
-40ms, may affect the echo cancellation results greatly. Still, with the delay agnostic feature, it may take some time (5-10s or more) for
-the Aec module to learn the optimal delay, thus a good initial estimate is necessary for good EC quality in the beginning of a call.
-自动延时估计需要一定的收敛时间，通过SD3AProcess_EnableDebugMode接口生成的Ref文件、Mic文件，使用cool edit确定二者延时作为初始值传入，
-将有利于尽快收敛获得较好效果。
+Webrtc中关于延时自动估计的说明：<br>
+WebRtc is very dependent on delay calculation, which will be passed to WebRtcAec_Process() below. A poor estimate, even by as little as<br>
+40ms, may affect the echo cancellation results greatly. Still, with the delay agnostic feature, it may take some time (5-10s or more) for<br>
+the Aec module to learn the optimal delay, thus a good initial estimate is necessary for good EC quality in the beginning of a call.<br>
+自动延时估计需要一定的收敛时间，通过SD3AProcess_EnableDebugMode接口生成的Ref文件、Mic文件，使用cool edit确定二者延时作为初始值传入，<br>
+将有利于尽快收敛获得较好效果。<br><br>
 
 ## Audio3AProcessSdk C API
 
