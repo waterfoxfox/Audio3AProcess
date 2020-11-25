@@ -17,6 +17,8 @@ the Aec module to learn the optimal delay, thus a good initial estimate is neces
 自动延时估计需要一定的收敛时间，通过SD3AProcess_EnableDebugMode接口生成的Ref文件、Mic文件，使用cool edit确定二者延时作为初始值传入，
 将有利于尽快收敛获得较好效果。<br><br>
 
+#### 集成了采集和渲染的3A一体库：https://github.com/waterfoxfox/Audio3ACapRender
+
 ## Audio3AProcessSdk C API
 
 ### 
