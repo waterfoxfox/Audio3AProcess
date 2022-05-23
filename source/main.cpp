@@ -1,4 +1,4 @@
-//***************************************************************************//
+﻿//***************************************************************************//
 //* 版权所有  www.mediapro.cc
 //*
 //* 内容摘要：音频3A处理演示DEMO
@@ -139,7 +139,7 @@ int main(int argc, char **argv)
 
 
 	//创建3A对象
-	h3A = SD3AProcess_New();
+	h3A = SD3AProcess_New(SD_AECM_METHOD);
     if (NULL == h3A)
     {
         printf("SD3AProcess_New failed!\n");

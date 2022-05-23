@@ -4,7 +4,7 @@
 ## Audio3AProcessSdk简介
 极简的音频3A(AGC AEC ANS VAD)处理封装接口：
 
-* 1、基于Webrtc AEC（非AECM、非AEC3）
+* 1、基于Webrtc AEC\AECM
 * 2、支持8KHZ、16KHZ、32KHZ、44.1KHZ、48KHZ，支持单声道、双声道。
 * 3、支持AEC自动延时估计。
 * 4、仅6个API，仅一个DLL组成，占用空间小，无第三方依赖，集成简易。
@@ -35,8 +35,9 @@ void  `SD3AProcess_Enviroment_Free`();
 
 ### 
 * 创建SD3AProcess<br>
+@param eAecMethod: AEC方法，其中AEC定点方法对应AECM，AEC浮点方法对应AEC<br>
 @return: 返回模块指针，为NULL则失败<br>
-void*  `SD3AProcess_New`();
+void*  `SD3AProcess_New`(SD_AEC_METHOD_TYPE eAecMethod);
 
 ### 
 * 销毁SD3AProcess，使用者应该做好与其他API之间的互斥保护<br>
