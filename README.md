@@ -95,3 +95,4 @@ void  `SD3AProcess_PutMicData`(void* p3AProcess, const short *psMicData, int nM
 BOOL  `SD3AProcess_EnableDebugMode`(void* p3AProcess, const char *pcTempFileSaveDir);
 
 ### 本库仅做演示用途，若需要商业用途与技术支持请联系 www.mediapro.cc
+### 更多资源见： https://mediapro.apifox.cn/
