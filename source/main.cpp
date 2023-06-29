@@ -48,12 +48,12 @@ static void SD_Sleep(DWORD dwMilliseconds)
 
 
 //3A处理输出回调
-void Output3AProcessedDataFunc(short *data, int len, void *pObject)
+void Output3AProcessedDataFunc(short *psSamples, int nSamplesCount, BOOL bInVoiceStatus, void *pObject)
 {
 	FILE *pfOutput = (FILE *)pObject;
 	if (pfOutput)
 	{
-		fwrite(data, sizeof(short), len, pfOutput);
+		fwrite(psSamples, sizeof(short), nSamplesCount, pfOutput);
 	}
 }
 
@@ -139,7 +139,7 @@ int main(int argc, char **argv)
 
 
 	//创建3A对象
-	h3A = SD3AProcess_New(SD_AECM_METHOD);
+	h3A = SD3AProcess_New(SD_AEC_METHOD);
     if (NULL == h3A)
     {
         printf("SD3AProcess_New failed!\n");
@@ -149,7 +149,7 @@ int main(int argc, char **argv)
 	//SD3AProcess_EnableDebugMode(h3A, "./debug");
 
 	//启动3A对象
-	BOOL bRet = SD3AProcess_Start(h3A, samplerate, channels, delay, TRUE, TRUE, TRUE, Output3AProcessedDataFunc, NULL, faec);
+	BOOL bRet = SD3AProcess_Start(h3A, samplerate, channels, delay, TRUE, TRUE, TRUE, TRUE, Output3AProcessedDataFunc, faec);
 	if (bRet == FALSE)
 	{
 		goto exitproc;

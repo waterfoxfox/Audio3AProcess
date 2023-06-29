@@ -77,9 +77,8 @@ typedef enum SD_AEC_METHOD_TYPE
 
 
 //3A处理后的数据输出回调，注意nSamplesCount为psSamples中short型数据的数目
-typedef void (*Output3AProcessedData)(short *psSamples, int nSamplesCount, void *pObject);
-//若开启了VAD，通过本回调输出当前VAD状态
-typedef void (*OutputVadProcessStatus)(BOOL bInVoiceStatus, void *pObject);
+typedef void (*Output3AProcessedData)(short *psSamples, int nSamplesCount, BOOL bInVoiceStatus, void *pObject);
+
 
 //////////////////////////////////////////////////////////////////////////
 // 音频3A处理封装接口
@@ -124,13 +123,13 @@ DLLIMPORT_3A void  SD3AProcess_Delete(void** pp3AProcess);
 * @param bEnableAec: 是否使能AEC
 * @param bEnableAgc: 是否使能AGC
 * @param bEnableAns: 是否使能ANS
+* @param bEnableVad: 是否使能VAD
 * @param pfOutput3ACallback: 经过3A处理后的音频数据输出回调接口
-* @param pfVadStatusCallback: VAD检测的输出回调接口，设置为NULL时不开启VAD检测
 * @param pObject: 上述输出回调接口的透传指针，将通过回调函数形参方式透传外层
-* @return: 返回模块指针，为NULL则失败
+* @return: TRUE-成功， FALSE-失败
 */
-DLLIMPORT_3A BOOL  SD3AProcess_Start(void* p3AProcess, int nSampleRate, int nChannelNum, int nAecDelayInitMs, BOOL bEnableAec, BOOL bEnableAgc, BOOL bEnableAns,
-									Output3AProcessedData pfOutput3ACallback, OutputVadProcessStatus pfVadStatusCallback, void* pObject);
+DLLIMPORT_3A BOOL  SD3AProcess_Start(void* p3AProcess, int nSampleRate, int nChannelNum, int nAecDelayInitMs, BOOL bEnableAec, BOOL bEnableAgc, BOOL bEnableAns, BOOL bEnableVad,
+									Output3AProcessedData pfOutput3ACallback, void* pObject);
 
 
 
@@ -189,6 +188,15 @@ DLLIMPORT_3A void  SD3AProcess_ConfigAgc(void* p3AProcess, short nCompressionGai
 * @return:
 */
 DLLIMPORT_3A void  SD3AProcess_ConfigAns(void* p3AProcess, short nMode);
+
+
+/***
+* 设置VAD参数，若需要调用本API，请于Start接口之前调用。未调用本API时将使用WEBRTC默认值
+* @param p3AProcess: 模块指针
+* @param nMode: 四种模式，用数字0~3来区分，数字越大越不敏感，默认值3
+* @return:
+*/
+DLLIMPORT_3A void  SD3AProcess_ConfigVad(void* p3AProcess, short nMode);
 
 
 #ifdef __cplusplus
