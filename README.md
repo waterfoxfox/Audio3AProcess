@@ -50,8 +50,8 @@ void  `SD3AProcess_Delete`(void** pp3AProcess);
 @param p3AProcess: 模块指针<br>
 @param nSampleRate: 输入待处理数据采样率<br>
 @param nChannelNum: 输入待处理数据声道数<br>
-@param nAecDelayInitMs: MIC信号与REF扬声器输出信号之间的延时差，将作为内部AEC自动延时估计的初始值。<br>
-                         建议通过SD3AProcess_EnableDebugMode接口保存MIC、REF文件后观测得到<br>
+@param nAecDelayInitMs: MIC信号与REF扬声器输出信号之间的延时差，将作为内部AEC自动延时估计的初始值。
+                         建议通过SD3AProcess_EnableDebugMode接口保存MIC、REF文件后观测得到
                          准确的延时估计初始值有利于自动延时估计尽快收敛<br>
 @param bEnableAec: 是否使能AEC<br>
 @param bEnableAgc: 是否使能AGC<br>
