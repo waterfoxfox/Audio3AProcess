@@ -46,20 +46,20 @@ void*  `SD3AProcess_New`(SD_AEC_METHOD_TYPE eAecMethod);
 void  `SD3AProcess_Delete`(void** pp3AProcess);
 
 ### 
-* 开始启动SD3AProcess，仅支持16bit short音频3A处理
-@param p3AProcess: 模块指针
-@param nSampleRate: 输入待处理数据采样率
-@param nChannelNum: 输入待处理数据声道数
-@param nAecDelayInitMs: MIC信号与REF扬声器输出信号之间的延时差，将作为内部AEC自动延时估计的初始值。
-                         建议通过SD3AProcess_EnableDebugMode接口保存MIC、REF文件后观测得到
-                         准确的延时估计初始值有利于自动延时估计尽快收敛
-@param bEnableAec: 是否使能AEC
-@param bEnableAgc: 是否使能AGC
-@param bEnableAns: 是否使能ANS
-@param bEnableVad: 是否使能VAD
-@param pfOutput3ACallback: 经过3A处理后的音频数据输出回调接口
-@param pObject: 上述输出回调接口的透传指针，将通过回调函数形参方式透传外层
-@return: TRUE-成功， FALSE-失败
+* 开始启动SD3AProcess，仅支持16bit short音频3A处理<br>
+@param p3AProcess: 模块指针<br>
+@param nSampleRate: 输入待处理数据采样率<br>
+@param nChannelNum: 输入待处理数据声道数<br>
+@param nAecDelayInitMs: MIC信号与REF扬声器输出信号之间的延时差，将作为内部AEC自动延时估计的初始值。<br>
+                         建议通过SD3AProcess_EnableDebugMode接口保存MIC、REF文件后观测得到<br>
+                         准确的延时估计初始值有利于自动延时估计尽快收敛<br>
+@param bEnableAec: 是否使能AEC<br>
+@param bEnableAgc: 是否使能AGC<br>
+@param bEnableAns: 是否使能ANS<br>
+@param bEnableVad: 是否使能VAD<br>
+@param pfOutput3ACallback: 经过3A处理后的音频数据输出回调接口<br>
+@param pObject: 上述输出回调接口的透传指针，将通过回调函数形参方式透传外层<br>
+@return: TRUE-成功， FALSE-失败<br>
 
 BOOL  `SD3AProcess_Start`(void* p3AProcess, int nSampleRate, int nChannelNum, int nAecDelayInitMs, BOOL bEnableAec, BOOL bEnableAgc, BOOL bEnableAns, BOOL bEnableVad,
 									Output3AProcessedData pfOutput3ACallback, void* pObject);
